@@ -99,3 +99,18 @@ let p2 = document.createElement("p");
 p2.innerText = 'я ниже';
 parent.insertAdjacentElement('afterEnd', p2);*/
 
+//const createjsBar = document.querySelector("#js-bar");
+//createjsBar = document.getElementsByTagName('div');
+
+const jsBar = document.querySelector("#js-bar");
+
+const jsBar_div = function(){
+    jsBar.innerHTML = '';
+    let div = document.createElement("div");
+    div.classList.add('col-1-4');
+    //div1.append(span);
+    //span.classList.add("total");
+    //span.setAttribute("id", "js-total");
+    //span.innerText = '3 items left';
+
+}
