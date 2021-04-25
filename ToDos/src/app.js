@@ -104,13 +104,19 @@ parent.insertAdjacentElement('afterEnd', p2);*/
 
 const jsBar = document.querySelector("#js-bar");
 
-const jsBar_div = function(){
     jsBar.innerHTML = '';
-    let div = document.createElement("div");
-    div.classList.add('col-1-4');
-    div.append(span);
+    let div1 = document.createElement("div");
+    div1.classList.add('col-1-4');
+    div1.append("span");
     span.classList.add("total");
     span.setAttribute("id", "js-total");
     span.innerText = '3 items left';
 
-}
+    let div2 = document.createElement("div");
+    div2.classList.add("col-1-2");
+    div2.append("ul");
+    ul.classList.add("filter");
+    ul.setAttribute("id","js-filters");
+    let li1 = ul.append("li");
+    let li2 = ul.append("li");
+    let li3 = ul.append("li");
