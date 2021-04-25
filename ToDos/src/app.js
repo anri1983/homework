@@ -108,9 +108,9 @@ const jsBar_div = function(){
     jsBar.innerHTML = '';
     let div = document.createElement("div");
     div.classList.add('col-1-4');
-    //div1.append(span);
-    //span.classList.add("total");
-    //span.setAttribute("id", "js-total");
-    //span.innerText = '3 items left';
+    div.append(span);
+    span.classList.add("total");
+    span.setAttribute("id", "js-total");
+    span.innerText = '3 items left';
 
 }
