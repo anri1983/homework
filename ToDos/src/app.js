@@ -131,6 +131,17 @@ const jsBar = document.querySelector("#js-bar");
     li1.append(link_all);
     li2.append(link_active);
     li3.append(link_complited);
+    link_all.href = '#/all';
+    link_all.classList.add("button");
+    link_all.classList.add("selected");
+    link_all.innerText = 'All';
+    link_active.href = '#/active';
+    link_active.classList.add("button");
+    link_active.innerText = "Active";
+    link_complited.href = '#/completed';
+    link_complited.classList.add("button");
+    link_complited.innerText = 'Complited';
+
 
     let div3 = document.createElement("div");
     jsBar.appendChild(div3);
