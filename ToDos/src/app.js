@@ -125,6 +125,12 @@ const jsBar = document.querySelector("#js-bar");
     let li2 = document.createElement("li");
     let li3 = document.createElement("li");
     ul.append(li1, li2, li3);
+    let link_all = document.createElement("a");
+    let link_active = document.createElement("a");
+    let link_complited = document.createElement("a");
+    li1.append(link_all);
+    li2.append(link_active);
+    li3.append(link_complited);
 
     let div3 = document.createElement("div");
     jsBar.appendChild(div3);
@@ -134,3 +140,4 @@ const jsBar = document.querySelector("#js-bar");
     buttondiv3.classList.add("button", "button--clear");
     buttondiv3.id = "js-clear-completed";
     buttondiv3.innerText = "Clear Completed";
+     
