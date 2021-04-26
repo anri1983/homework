@@ -106,18 +106,31 @@ const jsBar = document.querySelector("#js-bar");
 
     jsBar.innerHTML = '';
     let div1 = document.createElement("div");
+    jsBar.appendChild(div1);
     div1.classList.add('col-1-4');
-    Let span = document.createElement("span");
-    div1.appendChild("span");
+    let span = document.createElement("span");
+    div1.appendChild(span);
     span.classList.add("total");
     span.setAttribute("id", "js-total");
     span.innerText = '3 items left';
 
     let div2 = document.createElement("div");
+    jsBar.appendChild(div2);
     div2.classList.add("col-1-2");
-    div2.append("ul");
+    let ul = document.createElement("ul");
+    div2.append(ul);
     ul.classList.add("filter");
     ul.setAttribute("id","js-filters");
-    let li1 = ul.append("li");
-    let li2 = ul.append("li");
-    let li3 = ul.append("li");
+    let li1 = document.createElement("li");
+    let li2 = document.createElement("li");
+    let li3 = document.createElement("li");
+    ul.append(li1, li2, li3);
+
+    let div3 = document.createElement("div");
+    jsBar.appendChild(div3);
+    div3.classList.add("col-1-4");
+    let buttondiv3 = document.createElement("button");
+    div3.append(buttondiv3);
+    buttondiv3.classList.add("button", "button--clear");
+    buttondiv3.id = "js-clear-completed";
+    buttondiv3.innerText = "Clear Completed";
