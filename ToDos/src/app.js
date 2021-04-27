@@ -142,7 +142,6 @@ const jsBar = document.querySelector("#js-bar");
     link_complited.classList.add("button");
     link_complited.innerText = 'Complited';
 
-
     let div3 = document.createElement("div");
     jsBar.appendChild(div3);
     div3.classList.add("col-1-4");
@@ -151,4 +150,21 @@ const jsBar = document.querySelector("#js-bar");
     buttondiv3.classList.add("button", "button--clear");
     buttondiv3.id = "js-clear-completed";
     buttondiv3.innerText = "Clear Completed";
+
+link_all.onclick = function () {
+        link_all.classList.add('selected');
+        link_active.classList.remove('selected');
+        link_complited.classList.remove('selected');
+    }
+    link_active.onclick = function () {
+        link_active.classList.add('selected');
+        link_complited.classList.remove('selected')
+        link_all.classList.remove('selected');
+    }
+    link_complited.onclick = function () {
+        link_complited.classList.add('selected');
+        link_all.classList.remove('selected');
+        link_active.classList.remove('selected');
+    }
+
      
