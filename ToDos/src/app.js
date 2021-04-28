@@ -154,7 +154,6 @@ const jsBar = document.querySelector("#js-bar");
         parent.innerHTML = '';
         };
     
-
 link_all.onclick = function () {
         link_all.classList.add('selected');
         link_active.classList.remove('selected');
