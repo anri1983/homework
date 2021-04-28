@@ -150,21 +150,30 @@ const jsBar = document.querySelector("#js-bar");
     buttondiv3.classList.add("button", "button--clear");
     buttondiv3.id = "js-clear-completed";
     buttondiv3.innerText = "Clear Completed";
+    buttondiv3.onclick = function() {
+        parent.innerHTML = '';
+        };
+    
 
 link_all.onclick = function () {
         link_all.classList.add('selected');
         link_active.classList.remove('selected');
         link_complited.classList.remove('selected');
+        renderList();    
     }
     link_active.onclick = function () {
         link_active.classList.add('selected');
         link_complited.classList.remove('selected')
         link_all.classList.remove('selected');
+        
+        parent.innerHTML = '<li style=""><div class="todo"><input type="checkbox" class="toggle"><span><div>task4</div></span><button class="destroy"></button></div></li>' + '<li style=""><div class="todo"><input type="checkbox" class="toggle"><span><div>task5</div></span><button class="destroy"></button></div></li>' + '<li style=""><div class="todo"><input type="checkbox" class="toggle"><span><div>task6</div></span><button class="destroy"></button></div></li>' + '<li style=""><div class="todo"><input type="checkbox" class="toggle"><span><div>task7</div></span><button class="destroy"></button></div></li>';
     }
     link_complited.onclick = function () {
         link_complited.classList.add('selected');
         link_all.classList.remove('selected');
         link_active.classList.remove('selected');
+
+        parent.innerHTML = ('<li><div class="todo"><input type="checkbox" class="toggle"><span><div>task3</div></span><button class="destroy"></button></div></li>');
     }
 
      
