@@ -175,4 +175,68 @@ link_all.onclick = function () {
         parent.innerHTML = ('<li><div class="todo"><input type="checkbox" class="toggle"><span><div>task3</div></span><button class="destroy"></button></div></li>');
     }
 
-     
+//CLASS
+
+class human {
+    constructor (age, weight, gender){
+        this.age = age;
+        this.weight = weight;
+        this.gender = gender; 
+    }
+}
+
+class employer extends human{
+    nameCompany = 'Roga i Kopyta';
+    typeOfOwnership = 'JSC';
+    kindOfActivity = 'Equipments fix';
+    payMoney ()  {
+    'every week';
+    }
+    searchingForaJob () {
+        'service contract';
+    }
+    custom_madeEquipment () {
+        'extruder manufacturing';
+    }
+}
+
+    class engineer extends employer {
+        specialisation = 'Equipment';
+        experience = 10;
+        qualification = 'mechanic';
+        writeDocument (){
+    console.log('instruction№1');
+        }
+    fixBugs (){
+        console.log(BugsFixed);
+    }
+    getIntructions () {
+        console.log('make call to employer');
+    }
+        }
+    
+    class tester extends employer {
+        Check = 'Ok';
+        FindBugs = 5;
+        FixMethods = 'Scan';
+        constructor() {
+            super(56, 80, 'male');
+        }
+        findFails () {
+            'No fails';
+        }
+        writeAnnotation (){
+        "works well";
+        }
+        functionalityImprovements () {
+            'increased stability';
+        }
+    }
+
+
+   let human1 = new human (40, 105, 'female');
+   let human2 = new human (25, 75, "male");
+  console.log(human1, human2);
+  
+  let tester2 = new tester;
+  console.log(tester2);
