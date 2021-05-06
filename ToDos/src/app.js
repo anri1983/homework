@@ -1,3 +1,31 @@
+/*import tasks from './components/tasks';
+import bar from './components/bar';
+import list from './components/list';
+
+tasks.add({ name: 'task1', key: 1, status: 'overdue' });
+tasks.add({ name: 'task2', key: 2, status: 'overdue' });
+tasks.add({ name: 'task3', key: 3, status: 'done' });
+tasks.add({ name: 'task4', key: 4, status: 'active' });
+tasks.add({ name: 'task5', key: 5, status: 'active' });
+
+class App{
+    bar = {};
+    list = {};
+    constructor(bar, tasks, list){
+        this.bar = bar;
+        this.tasks = tasks;
+        this.list = new list;
+    }
+    setFilter(name){
+        this.bar.filter = name;
+        this.render();
+    }
+render () {
+    let items = this.tasks.get();
+    this.bar.render(items.length);
+ }
+}*/
+//(newApp)
 const todos = [
   { name: 'task1', key: 1, status: 'overdue' },
   { name: 'task2', key: 2, status: 'overdue' },
@@ -112,7 +140,7 @@ const jsBar = document.querySelector("#js-bar");
     div1.appendChild(span);
     span.classList.add("total");
     span.setAttribute("id", "js-total");
-    span.innerText = '3 items left';
+    span.innerText = `${count} items left`;
 
     let div2 = document.createElement("div");
     jsBar.appendChild(div2);
@@ -150,6 +178,7 @@ const jsBar = document.querySelector("#js-bar");
     buttondiv3.classList.add("button", "button--clear");
     buttondiv3.id = "js-clear-completed";
     buttondiv3.innerText = "Clear Completed";
+    
     buttondiv3.onclick = function() {
         parent.innerHTML = '';
         };
