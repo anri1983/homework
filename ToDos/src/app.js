@@ -1,6 +1,6 @@
 /*import tasks from './components/tasks';
+import List from './components/list';
 import bar from './components/bar';
-import list from './components/list';
 
 tasks.add({ name: 'task1', key: 1, status: 'overdue' });
 tasks.add({ name: 'task2', key: 2, status: 'overdue' });
@@ -11,126 +11,48 @@ tasks.add({ name: 'task5', key: 5, status: 'active' });
 class App{
     bar = {};
     list = {};
-    constructor(bar, tasks, list){
+    tasks = {};
+    constructor(bar, tasks,){
         this.bar = bar;
         this.tasks = tasks;
-        this.list = new list;
+        this.list = new List();
+
+        this.bar.callback = this.setFilter.bind(this);
+        this.list.callback = this.removeItem;
+        this.addEvent();
     }
-    setFilter(name){
-        this.bar.filter = name;
+    addEvent() {
+        const form = document.getElementById('insert__form');
+        form.onsubmit = (event) => {
+            event.preventDefault();
+            if(!event && !event.currentTarget){
+                return;
+            }
+            let input = event.currentTarget.fistElementChild;
+            this.tasks.add({name: input.value, key: this.tasks.items.length + 1 , stetus: 'active'});
+            input.value = '';
+            this.render()
+        }
+    }
+    setFilter(name) {
+        this.tasks.filter = name;
         this.render();
     }
-render () {
-    let items = this.tasks.get();
-    this.bar.render(items.length);
- }
-}*/
-//(newApp)
-const todos = [
-  { name: 'task1', key: 1, status: 'overdue' },
-  { name: 'task2', key: 2, status: 'overdue' },
-  { name: 'task3', key: 3, status: 'done' },
-  { name: 'task4', key: 4, status: 'active' },
-  { name: 'task5', key: 5, status: 'active' },
-  { name: 'task6', key: 6, status: 'active' },
-  { name: 'task7', key: 7, status: 'active' }
-];
-
-const parent = document.querySelector("body > div > div:nth-child(4) > ul");
-
-
-
-const renderList = function () {
-
-    parent.innerHTML = '';
-  for(let i=0; i < todos.length; i++) {
-
-    let todo = todos[i];
-        let li = document.createElement("li");
-    let div = document.createElement("div");
-    let input = document.createElement("input");
-    let span = document.createElement("span");
-    let button = document.createElement("button");
-
-        div.classList.add('todo');
-
-        input.setAttribute('type', 'checkbox');
-    input.classList.add('toggle');
-
-        span.innerHTML = `<div>${todo.name}</div>`;
-
-        button.classList.add('destroy');
-
-        div.append(input, span, button);
-
-        li.appendChild(div);
-
-        li.onclick = function () {
-            li.classList.add('completed');
+    render() {
+        let items = this.tasks.get();
+        this.bar.render(items.length);
+        this.list.render(items);
     }
-
-        li.ondblclick = function () {
-            li.classList.remove('completed');
-    }
-
-        li.onmouseover = function () {
-            li.style.border = '1px solid green';
-    }
-
-        li.onmouseout = function () {
-            li.style.border = '';
-    }
-
-        parent.appendChild(li);
-  }
 }
-
-renderList();
-
-const form = document.getElementById('insert__form');
-
-form.onsubmit = function (event) {
-    event.preventDefault();
-
-    let input = event.currentTarget.firstElementChild;
-
-    todos.push(
-    { name: input.value, key: todos.length + 1 , status: 'active' }
-  );
-
-    input.value = '';
-
-    renderList();
-}
+(new App (bar, tasks, {})).render();
 
 
-/*
-let newLi = document.createElement("li");
 
-newLi.innerText = `super first`;
-
-parent.prepend(newLi);
-
-let superLast = document.createElement("li");
-superLast.innerText = `super last`;
-parent.appendChild(superLast);
-
-let middleLast = document.createElement("li");
-middleLast.innerText = `middle last`;
-parent.insertBefore(middleLast, parent.children[3]);
-
-let p = document.createElement("p");
-p.innerText = 'я выше';
-parent.insertAdjacentElement('beforeBegin', p);
-
-let p2 = document.createElement("p");
-p2.innerText = 'я ниже';
-parent.insertAdjacentElement('afterEnd', p2);*/
 
 //const createjsBar = document.querySelector("#js-bar");
 //createjsBar = document.getElementsByTagName('div');
 
-const jsBar = document.querySelector("#js-bar");
+/*const jsBar = document.querySelector("#js-bar");
 
     jsBar.innerHTML = '';
     let div1 = document.createElement("div");
@@ -268,4 +190,111 @@ class employer extends human{
   console.log(human1, human2);
   
   let tester2 = new tester;
-  console.log(tester2);
+  console.log(tester2);*/
+
+  //1
+class counter 
+{
+    count = 0;
+    constructor(count)
+    {
+        this.count = count
+    }
+    up = function ()
+    {
+        let num = this.count;
+        for (let i=1; i<2; i++)
+          { 
+              num += i
+              this.count = num
+          }
+    }
+   
+    down = function ()
+        {
+            let num = this.count;
+            for (let i=1; i<2; i++)
+              { 
+                  num -= i
+                  this.count = num
+              }
+        }
+   
+    
+    show = function()
+    { console.log('counter1', '=',this.count)
+
+    }
+}
+let counter1 = new counter(5);
+
+setTimeout(() => {
+    counter1.show() 
+}, 10000); //Забавная штука асинхронность
+
+counter1.up()
+counter1.up()
+counter1.show()
+counter1.down()
+counter1.down()
+counter1.down()
+counter1.down()
+counter1.down()
+counter1.show()
+
+
+//2
+let counter2 = {
+    count1 : 0,
+    up : function ()
+    {
+        let number = this.count1;
+        for (let i=1; i<2; i++)
+          { 
+              number += i
+              this.count1 = number
+          }
+    },
+    show : function ()
+    {
+console.log('counter2', '=',this.count1)
+    }
+}
+counter2.up(2)
+
+
+
+
+
+//3
+class mixer{
+    constructor(type, voltage, rpm){
+        this.type = type
+        this.voltage = voltage
+        this.rpm  = rpm
+    }
+    power(){
+        console.log('power is on', this.voltage,'v')
+    }
+    adjust(){
+        console.log('Rotation speed set', this.rpm, 'min')
+    }
+    nozzle(){
+        console.log(this.type, 'set knife attachment')
+    }
+}
+let mixer1 = new mixer('blender', 220, 3000)
+mixer1.power()
+mixer1.adjust()
+mixer1.nozzle()
+
+//4
+setTimeout (function () {
+console.log('Хватит играть')
+}, 1000);
+setTimeout (function () {
+    console.log('пора делать ДЗ!')
+    }, 5000);
+    
+
+
