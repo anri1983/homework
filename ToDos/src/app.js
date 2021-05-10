@@ -246,7 +246,7 @@ counter1.show()
 //2
 let counter2 = {
     count1 : 0,
-    up : function ()
+    up1 : function ()
     {
         let number = this.count1;
         for (let i=1; i<2; i++)
@@ -255,16 +255,31 @@ let counter2 = {
               this.count1 = number
           }
     },
-    show : function ()
+    down1 : function ()
+    {
+        let number = this.count1;
+        for (let i=1; i<2; i++)
+          { 
+              number -= i
+              this.count1 = number
+          }
+    },
+    show1 : function ()
     {
 console.log('counter2', '=',this.count1)
     }
 }
-counter2.up(2)
-
-
-
-
+counter2.count1 = 5
+counter2.show1()
+counter2.up1()
+counter2.up1()
+counter2.show1()
+counter2.down1()
+counter2.down1()
+counter2.down1()
+counter2.down1()
+counter2.down1()
+counter2.show1()
 
 //3
 class mixer{
